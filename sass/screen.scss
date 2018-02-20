@@ -1,0 +1,974 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "reset.scss";
+
+$colorWhite: #ffffff;
+$colorGreyLightMax: #999999;
+$colorGreyLight: #888888;
+$colorGrey: #777777;
+$colorGreyDark: #555555;
+$colorVioletGrey: #b7bffc;
+$colorVioletDarkMax: #5161d9;
+$colorVioletDark: #5363db;
+$colorViolet: #5b6ceb;
+
+$fsize: 14px;
+
+@mixin br($br){
+	-webkit-border-radius: $br;
+	-moz-border-radius: $br;
+	-o-border-radius: $br;
+	border-radius: $br
+}
+
+@mixin links($link, $hover, $focus){
+	a{
+		text-decoration: $link;
+		&:hover{
+			cursor: $hover;
+		}
+		&:focus{
+			@include br($focus);
+			outline: $focus;
+		}
+	}
+}
+
+@mixin bgp($img){
+	background: url(../images/#{$img}.png) no-repeat 0 0;
+}
+
+@mixin bgj($img){
+	background: url(../images/#{$img}.jpg) no-repeat 0 0;
+}
+
+@mixin bgSize($bgSize){
+	-webkit-background-size: $bgSize;
+	-moz-background-size: $bgSize;
+	-o-background-size: $bgSize;
+	background-size: $bgSize;
+}
+
+
+
+
+
+
+
+
+*{
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box;
+}
+
+@include links(none, pointer, none);
+
+body{
+	line-height: 1;
+	margin: 0;
+	min-width: 320px;
+	font-family: 'OpenSans-Semibold', sans-serif;
+}
+
+body a:hover{
+	text-decoration: underline;
+	opacity: 0.7;
+	transition: all 0.1s ease-in-out 0.3s;
+}
+
+header{
+	position: relative;	
+	max-width: 1920px;
+}
+
+header::after, .wrapper::after, .begin::after{
+	content: '';
+	display: table;
+	clear: both;
+}
+
+.wrapper{
+	max-width: 1170px;
+	margin: 0 auto;
+	position: relative;
+}
+
+@mixin font-face($OpenSansSB, $OpenSansSemibold) {
+    @font-face {
+        font-family: $OpenSansSB;
+        src: url('../fonts/' + $OpenSansSemibold + ".eot");
+        src: url('../fonts/' + $OpenSansSemibold + ".eot?#iefix") format('embedded-opentype'), url('../fonts/' + $OpenSansSemibold + ".woff") format('woff'), url('../fonts/' + $OpenSansSemibold + ".ttf")  format('truetype'), url('../fonts/' + $OpenSansSemibold + ".svg#") format('svg');
+    	font-weight: normal;
+		font-style: normal;
+    }
+}
+
+@include font-face('OpenSansSB', OpenSansSemibold);
+
+
+@mixin font-faceB($OpenSansB, $OpenSansBold) {
+    @font-face {
+        font-family: $OpenSansB;
+        src: url('../fonts/' + $OpenSansBold + ".eot");
+        src: url('../fonts/' + $OpenSansBold + ".eot?#iefix") format('embedded-opentype'), url('../fonts/' + $OpenSansBold + ".woff") format('woff'), url('../fonts/' + $OpenSansBold + ".ttf")  format('truetype'), url('../fonts/' + $OpenSansBold + ".svg#") format('svg');
+    	font-weight: normal;
+		font-style: normal;
+    }
+}
+
+@include font-faceB('OpenSansB', OpenSansBold);
+
+@mixin font-faceB($FreestyleScript, $FreestyleScriptRegular) {
+    @font-face {
+        font-family: $FreestyleScript;
+        src: url('../fonts/' + $FreestyleScriptRegular + ".eot");
+        src: url('../fonts/' + $FreestyleScriptRegular + ".eot?#iefix") format('embedded-opentype'), url('../fonts/' + $FreestyleScriptRegular + ".woff") format('woff'), url('../fonts/' + $FreestyleScriptRegular + ".ttf")  format('truetype'), url('../fonts/' + $FreestyleScriptRegular + ".svg#") format('svg');
+    	font-weight: normal;
+		font-style: normal;
+    }
+}
+
+@include font-faceB('FreestyleScript', FreestyleScriptRegular);
+
+
+/*header*/
+header{
+	position: relative;
+	z-index: 9999;
+	background: $colorWhite;
+}
+
+#header{
+	font-size: $fsize;
+	padding: 44px 0;
+}
+
+header.default{
+	position: fixed;
+	top: 0;
+    width: 100%;
+    z-index: 1;
+    max-height: 100vh;
+}
+
+.clearfix:after{
+	visibility: hidden;
+    display: block;
+    content: "";
+    clear: both;
+    height: 0;
+}
+
+#header img{
+	position: absolute;
+	top: 16px;
+	left: 50%;
+	margin-left: -35px;
+}
+
+#header a{color: $colorGreyDark;}
+
+.ulHL, .ulHR{
+	width: 48%;
+}
+
+.ulHL{
+	float: left;
+	text-align: right;
+	padding-right: 15%;
+}
+
+.ulHL li{
+	padding-left: 30px;
+}
+
+.ulHR{
+	float: right;
+	padding-left: 15%;
+}
+
+.ulHR li{
+	padding-right: 30px;
+}
+
+#header li{
+	display: inline-block;
+}
+
+.touch-menu{
+	display: none;
+}
+
+.navH{
+	display: block;
+	position: relative;
+}
+
+/*begin*/
+
+.begin{
+	max-width: 1920px;
+	@include bgj(beginBG);
+	@include bgSize(cover);
+	height: 600px;
+	padding-top: 100px;
+}
+
+.Reservation{
+	width: 46%;
+	float: left;
+}
+
+.conteinerForm{
+	width: 300px;
+	background: $colorWhite;
+	@include br(15px);
+	padding: 40px 0 35px 30px;
+	float: right;
+}
+
+.conteinerForm h3{
+	font-size: $fsize + 11.64px;
+	color: $colorVioletDark;
+	padding-bottom: 31px;
+}
+
+.inputB, .chose{
+	width: 230px;
+	color: $colorGreyLight;
+	background: #f2f2f2;
+	border: none;
+	font-size: $fsize;
+	padding: 18px 10px;
+	@include br(5px);
+	margin-bottom: 17px;
+	margin-right: 5px;
+	outline: none;
+}
+
+.chose{
+	@include bgp(choice);
+	background-color: #f2f2f2;
+	background-position: 95% center;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.bSubmit{
+	border: none;
+	font: $fsize + 2 'OpenSans-Semibold', sans-serif;
+	background: $colorViolet;
+	color: #fff;
+	@include br(5px);
+	padding: 16px 65px;
+	margin: 14px 0 0 65px;
+	box-shadow: 3px 2px 13px #e8e8e8;
+}
+
+.bSubmit:hover{
+	background: #a7addc;
+}
+
+.discription{
+	width: 46%;
+	float: right;
+}
+
+.discription h2{
+	font: 48px/72px 'OpenSans-Semibold', sans-serif;
+	color: $colorWhite;
+	text-transform: uppercase;
+	width: 485px;
+	letter-spacing: 0.5px;
+	padding: 75px 0 22px;
+}
+.discription p{
+	font: 40px/48px 'FreestyleScript', sans-serif;
+	color: $colorWhite;
+	width: 270px;
+}
+
+/*Blog*/
+.Blog{
+	max-width: 1920px;
+	background: $colorWhite;
+	padding-bottom: 125px;
+}
+
+.Blog h2{
+	font: $fsize + 16 'OpenSans-Bold', sans-serif;
+	color: $colorViolet;
+	text-transform: uppercase;
+	padding: 110px 0 10px;
+	text-align: center;
+}
+
+.Blog p{
+	font: $fsize + 26.99 'FreestyleScript', sans-serif;
+	color: $colorGrey;
+	text-align: center;
+}
+
+.Blog .wrapper>p{
+	padding-bottom: 70px;
+	padding-top: 300px;
+    margin-top: -300px;
+}
+
+.contentBlog{
+	text-align: center;
+}
+
+.ulBlog:first-child{
+	padding-bottom: 25px;
+}
+
+.ulBlog li{
+	display: inline-block;
+	width: 570px;
+	box-shadow: 3px 2px 13px #e8e8e8;
+	@include br(7px);
+}
+
+.ulBlog li:first-child{
+	margin-right: 25px;
+}
+
+.ulBlog img{
+	float: left;
+	padding-right: 30px;
+}
+
+.text, 
+.Blog .text p{
+	text-align: left;
+}
+
+.text{
+	padding: 49px 0;
+}
+
+.ulBlog h3{
+	font: $fsize + 6 'OpenSans-Bold', sans-serif;
+	color: $colorGrey;
+	text-transform: uppercase;
+}
+
+.ulBlog p{
+	font: 14px/22px 'Open Sans', sans-serif;
+	color: $colorGreyDark;
+	padding: 17px 47px 7px 0;
+}
+
+.ulBlog a{
+	font: $fsize 'Open Sans', sans-serif;
+	color: $colorGreyLightMax;
+}
+
+/*Gallery*/
+.Gallery{
+	max-width: 1920px;
+	background: #d7d7d7;
+	overflow: hidden;
+}
+.Gallery ul{
+	text-align: center;
+	font-size: $fsize - $fsize;
+	padding-top: 190px;
+    margin-top: -190px;
+}
+
+.Gallery li{
+	display: inline-block;
+	line-height: 0;
+}
+
+.Gallery img{width: 100%;}
+
+/*AboutUs*/
+.AboutUs{
+	background: $colorWhite;
+	padding: 125px 0;
+	max-width: 1920px;
+}
+
+.narration{
+	float: left;
+	width: 40%;
+}
+
+.narration h2{
+	font: $fsize + 16 'OpenSans-Bold', sans-serif;
+	color: $colorViolet;
+	text-transform: uppercase;
+	padding-bottom: 20px;
+	padding-top: 250px;
+    margin-top: -250px;
+}
+
+.narration p{
+	font: 14px/22px 'Open Sans', sans-serif;
+	color: $colorGreyDark;
+}
+
+.slaider1{
+	float: right;
+	width: 49%;
+}
+
+/*Shop*/
+.Shop{
+	max-width: 1920px;
+	padding: 150px 0;
+	@include bgp(flower);
+	background-position: bottom right; 
+}
+
+.price{
+	padding-bottom: 105px;
+	padding-top: 200px;
+    margin-top: -200px;
+}
+
+.price ul{
+	text-align: center;
+}
+
+.price li{
+	width: 370px;
+	display: inline-block;
+	text-align: center;
+	margin-right: 25px;
+	box-shadow: 0px -7px 73px #f8f8f8;
+	@include br(7px);
+	overflow: hidden;
+}
+
+.price li:last-child{
+	margin-right: 0;
+}
+
+
+.cost{
+	font-family: 'OpenSans-Bold', sans-serif;
+	color: $colorWhite;
+	background: $colorViolet;
+	position: relative;
+	@include br(7px 7px 0 0);
+	padding: 50px 0;
+}
+
+.currency{
+	font-size: $fsize + 18;
+	position: absolute;
+	top: 70px;
+    left: 110px;
+}
+
+.amount{
+	font-size: $fsize + 53.35;
+	padding-left: 70px;
+}
+
+.month{
+	font-size: $fsize + 4;
+}
+
+.infoPrice{background: $colorWhite;}
+
+.infoPrice p{
+	font: $fsize + 4 'Open Sans', sans-serif;
+	color: $colorGreyDark;
+	padding: 51px 0 0;
+	position: relative;
+	&:after{
+		content: '';
+		width: 100px;
+		height: 1px;
+		position: absolute;
+		top: 100px;
+	    left: 145px;
+	    @include bgp(lineH);
+	}
+}
+
+.anotherP:after{
+	display: none;
+}
+
+.infoPrice a{
+	font: $fsize + 4 'OpenSans-Semibold', sans-serif;
+	padding: $fsize + 2 $fsize + 34;
+	display: inline-block;
+	background: $colorViolet;
+	@include br($fsize);
+	margin: $fsize + 37 0;
+	color: $colorWhite;
+}
+
+.infoPrice a:hover{
+	opacity: 1;
+	text-decoration: none;
+	background: #a7addc;
+	transition: none;
+}
+
+.sliderTwo{
+	width: 100%;
+	background: $colorWhite;
+}
+
+.Shop img{
+	float: left;
+	padding: 35px 90px 65px 62px;
+}
+
+.comment{
+	padding-top: 50px;
+}
+
+.comment p{
+	font: italic 14px/22px 'Open Sans', sans-serif;
+	color: $colorGreyDark;
+	padding-bottom: 27px;
+	max-width: 975px;
+	position: relative;
+	&:before{
+		content:"";
+		@include bgp(quoteL);
+		width: 21px;
+		height: 15px;
+		position: absolute;
+		left: 245px;
+		top: 0;
+	}
+	&:after{
+		content:"";
+		@include bgp(quoteR);
+		width: 21px;
+		height: 15px;
+		position: absolute;
+		right: 0;
+	    top: 65px;
+	    margin-right: -60px;
+	}
+}
+
+.nick{
+	font: $fsize 'OpenSans-Bold', sans-serif;
+	color: $colorGrey;
+	position: relative;
+	&:before{
+		content:"";
+		@include bgp(line);
+		width: 2px;
+		height: 77px;
+		position: absolute;
+		left: 250px;
+	    bottom: 10px;
+	}
+}
+
+.nick span{
+	display: block;
+	padding-bottom: 10px;
+}
+
+.posFix{
+	position: absolute;
+	bottom: -5px;
+	left: 35%;
+	margin-left: -50px;
+	width: 160px;
+}
+
+.posFix img{
+	padding: 0 10px 0 0;
+}
+
+.posFix div{
+	padding-top: 13px;
+}
+
+.posFix div span:first-child{
+	font: $fsize 'OpenSans-Bold', sans-serif;
+	color: $colorGreyDark;
+	display: block;
+	padding-bottom: 10px;
+}
+
+.posFix div span:last-child{
+	font: $fsize - 2 'Open Sans', sans-serif;
+	color: $colorGrey;
+}
+
+/*footer*/
+footer{
+	color: $colorWhite;
+	font: 14px/22px 'Open Sans', sans-serif;
+	background: $colorViolet;
+	padding: 100px 0;
+	max-width: 1920px;
+	overflow: hidden;
+}
+
+.info a{color: $colorWhite;}
+
+.about{
+	float: left;
+	width: 40%
+}
+
+.about img{
+	padding-right: 12px;
+}
+
+.contact{
+	float: right;
+	width: 45%
+}
+
+.contL{
+	float: left;
+	width: 40%;
+}
+
+.contR{
+	float: right;
+	width: 45%;
+}
+
+.about h2,
+.contact h2{
+	font: $fsize + 4 'OpenSans-Bold', sans-serif;
+	text-transform: uppercase;
+	padding-bottom: 60px;
+}
+
+.about p{
+	padding-bottom: 60px;
+}
+
+.contacts a{
+	color: $colorWhite;
+	display: block;
+	position: relative;
+	padding-left: 40px;
+}
+
+.contL>a:first-child{
+	padding-bottom: $fsize + 16;
+	&:before{
+		content: '';
+		position: absolute;
+		@include bgp(sprite);	
+		width: 15px;
+		height: 21px;
+		top: 5px;
+		left: 0;
+	}
+}
+
+
+.contR>a:first-child{
+	padding-bottom: $fsize + 36;
+	&:before{
+		content: '';
+		position: absolute;
+		@include bgp(sprite);
+		background-position: -48px -4px;
+		width: 21px;
+		height: 13px;
+		top: 5px;
+		left: 0;
+	}
+}
+
+.group{
+	position: relative;
+	&:before{
+		content: '';
+		position: absolute;
+		@include bgp(sprite);
+		background-position: -20px 0;
+		width: 21px;
+		height: 21px;
+		top: 5px;
+		left: 0;
+	}
+}
+
+.contR a:last-child:before{
+	content: '';
+	position: absolute;
+	@include bgp(sprite);
+	background-position: -74px 0;
+	width: 21px;
+	height: 21px;
+	top: 5px;
+	left: 0;
+}
+
+.footer{
+	background: #5363d8;
+	font: $fsize + 2 'Open Sans', sans-serif;
+	color: $colorVioletGrey;
+	text-align: center;
+	padding: 43px 0;
+}
+
+/*Elements*/
+.elements{
+	@include bgj(ElementsBG);
+	@include bgSize(cover);
+	color: $colorWhite;
+	text-align: center;
+	padding: 125px 0 75px;
+}
+
+#elements{
+	padding-top: 300px;
+    margin-top: -300px;
+}
+
+.elements li{
+	display: inline-block;
+	width: 287px;
+	padding: 0 10px 60px;
+	vertical-align: top;
+}
+
+.elements h2{
+	font: 18px/25px 'OpenSans-Bold', sans-serif;
+	padding: 33px 0 25px;
+}
+
+.elements h2 a{color: $colorWhite;}
+
+.elements p{
+	font: 16px/27px 'Open Sans', sans-serif;
+}
+
+
+@media only screen and (max-width: 1175px){
+/*Blog*/
+.ulBlog li:first-child {
+    margin: 0 0 30px; 
+}
+
+/*Shop*/
+.price li{margin-bottom: 35px;}
+
+/*footer*/
+.info{
+	margin: 0 20px;
+}
+
+
+}
+
+@media only screen and (max-width: 1055px){
+/*begin*/
+.begin{
+	padding: 100px 10px 0;
+}
+
+.Reservation, .discription{
+	width: auto;
+	float: none;
+}
+
+/*AboutUs*/
+.narration, .slaider1{
+	float: none;
+	width: 100%;
+	text-align: center;
+	padding-bottom: 40px;
+}
+
+.slick-slider{
+	margin: 0 auto;
+}
+
+
+/*Shop*/
+.Shop {
+    background: $colorWhite;
+}
+
+.Shop img{
+	float: none;
+	padding-bottom: 0;
+}
+
+.comment p {
+    padding: 0 70px 27px 90px;
+    &:before{
+		left: 68px;
+		top: -20px;
+	}
+    &:after{
+		right: 25px;
+		margin-right: 0;
+	}
+}
+
+.nick{
+	padding: 0 0 50px 90px;
+	&:before{
+		left: 60px;
+    	bottom: 40px;
+	}
+}
+
+.posFix img{float: left;}
+
+/*footer*/
+.contL, 
+.contR{
+	float: none;
+	width: auto;
+}
+
+.contR>a:first-child,
+.group {
+    padding-bottom: 30px;
+}
+
+
+}
+
+@media only screen and (max-width: 865px){
+/*headerB*/
+.ulHL li{
+	padding-left: 15px;
+}
+
+.ulHR li{
+	padding-right: 15px;
+}
+
+/*begin*/
+.discription h2{padding-top: 25px;}
+
+}
+
+@media only screen and (max-width: 768px){
+/*headerB*/
+#header .touch-menu{
+	display: block;
+	text-align: center;
+    margin-top: 60px;
+    font-size: 16px;
+    color: $colorVioletDarkMax;
+}
+
+.navH{display: none;}
+
+#header li{
+	display: block;
+	line-height: 16px;
+}
+
+.fa-bars{
+	padding-left: 10px;
+}
+
+
+/*begin*/
+.begin{
+	padding-top: 25px;
+}
+
+.conteinerForm{
+	float: none;
+	margin: 0 auto;
+}
+
+.discription h2,
+.discription p{
+	width: auto;
+	text-align: center;
+}
+
+.discription h2 {
+    font: 30px/35px 'OpenSans-Semibold', sans-serif;
+    padding: 13px 0 5px;
+}
+
+.discription p {
+    font: 35px/40px 'FreestyleScript', sans-serif;
+}
+
+/*Blog*/
+.ulBlog li{
+	width: 300px;
+}
+
+.ulBlog img{
+	float: none;
+	padding: 15px 0 0;
+	@include br(50px);
+}
+
+.text, .Blog .text p {
+    text-align: center;
+}
+
+.ulBlog p{
+	padding: 17px 10px 7px;
+}
+
+/*Shop*/
+.comment p:before,
+.comment p:after{
+	display: none;
+}
+
+/*footer*/
+footer {
+    padding: 40px 0;
+}
+
+.about h2, .contact h2{
+	padding-bottom: 20px;
+}
+
+.about,
+.contact{
+	float: none;
+	width: auto;
+	padding-top: 20px;
+}
+
+.about p{display: none;}
+}
+
+@media only screen and (max-width: 480px){
+/*begin*/
+.discription h2 {
+    font: 25px/30px 'OpenSans-Semibold', sans-serif;
+}
+/*Shop*/
+.price li{
+	width: 300px;
+	margin-right: 0;
+}
+
+.currency{
+	left: 75px;
+}
+
+.comment p {
+    padding: 0 40px 27px 60px;
+}
+
+}
